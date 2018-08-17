@@ -1,0 +1,21 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.pexels.com/photos/605408/pexels-photo-605408.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');">
+  <div class="banner-content">
+    <h1>Cocktail Paradise</h1>
+    <p>Learn to drink with us in Paris</p>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <ul>
+      <%  @cocktails.each do |cocktail|%>
+        <li>
+          <%= link_to cocktail.name, cocktail_path(cocktail)%>
+          <%= link_to "delete", cocktail_path(cocktail), method: :delete,
+      data: { confirm: "Are you sure?" }%> |
+          <%= link_to "Edit", edit_cocktail_path(cocktail) %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "Create", new_cocktail_path %>
+  </div>
+</div>
